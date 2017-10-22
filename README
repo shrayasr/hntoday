@@ -1,0 +1,3 @@
+*/5 * * * * cd /root/hntoday/ && bash work.sh
+56 23 * * * cd /root/hntoday/ && bash makegif.sh
+58 23 * * * cd /root/hntoday/ && bash posttweet.sh
