@@ -36,7 +36,7 @@ _.forEach(datesToRender, function(date) {
 
     var contentToWrite = [
         "---",
-        'title: "HN as on ' + moment(date).format('DD-MMMM-YY') + '"',
+        'title: "HN as on ' + moment(date).format('Do MMMM, YYYY') + '"',
         'path: ' + '"/' + moment(date).format('YYYY-MM-DD') + '/"',
         'date: "' + moment(date).format('YYYY-MM-DD') + '"',
         "---",

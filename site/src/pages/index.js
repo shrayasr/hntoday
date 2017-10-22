@@ -3,7 +3,6 @@ import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 
-import Bio from '../components/Bio'
 import { rhythm } from '../utils/typography'
 
 class BlogIndex extends React.Component {
@@ -31,7 +30,6 @@ class BlogIndex extends React.Component {
                     {post.node.frontmatter.title}
                   </Link>
                 </h3>
-                <small>{post.node.frontmatter.date}</small>
                 <p dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
               </div>
             )
