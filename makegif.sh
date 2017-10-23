@@ -14,4 +14,4 @@ fi
 
 cd "$now_date"
 
-$convert -dither none -deconstruct -fuzz 10% -layers optimize -matte -depth 8 -delay 100 -loop 0 "*.jpg" "$now_date.gif"
+$convert -dither none -deconstruct -fuzz 10% -layers optimize -matte -depth 8 -delay 100 -loop 0 "*00.jpg" "$now_date.gif"
