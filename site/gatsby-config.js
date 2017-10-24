@@ -1,10 +1,7 @@
-var path = require('path')
-
 module.exports = {
   siteMetadata: {
-    title: "Hacker News Today",
+    title: "HN Today",
     author: "HNToday Bot",
-    gifSource: path.join('test', 'dummy-data'),
   },
   plugins: [
     {

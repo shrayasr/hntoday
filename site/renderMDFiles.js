@@ -1,7 +1,7 @@
 var fs = require('fs')
 var path = require('path')
 var _ = require('lodash')
-var gifLocation = require('./gatsby-config').siteMetadata.gifSource
+var gifLocation = require('./config-automate.js').gifSource
 var pathToRenderedMDFiles = path.join('src', 'pages')
 var moment = require('moment')
 
