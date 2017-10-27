@@ -6,8 +6,6 @@ import { forEach } from 'lodash';
 
 export default function CreatePaginationPost ({ pathContext, data }) {
     const { posts, yearMonth } = pathContext;
-    console.log(posts);
-    console.log(yearMonth);
     // var postsRestructured = [];
     // forEach(posts, (individualPost) => {
     //     var temp = {}

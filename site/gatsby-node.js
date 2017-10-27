@@ -71,7 +71,6 @@ function generateStuff(createPage, graphqlResults) {
 
   // creating pages that show links of each and every month
   _.each(monthlyGroups, function(postArray, date) {
-    console.log(postArray, date);
     createPage({
       path: date,
       component: monthlyArchive,
