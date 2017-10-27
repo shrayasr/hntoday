@@ -17,11 +17,12 @@ var getDirectoriesThatRepresentDates = function(pathToDirectory) {
     return directoryList;
 }
 
-
+// folders already existing in src/pages i.e
 var renderedDates = getDirectoriesThatRepresentDates(pathToRenderedMDFiles).map(function(dateInHumanFriendlyFormat) {
     // so that the folders can be compared with the data source
     return moment(dateInHumanFriendlyFormat).format('YYYYMMDD')
 })
+
 var allDates = getDirectoriesThatRepresentDates(gifLocation)
 var datesToRender = _.difference(allDates, renderedDates)
 
@@ -52,7 +53,3 @@ _.forEach(datesToRender, function(date) {
     // })
     fs.writeFileSync(path.join(directoryForMDFile, "index.md"), contentToWrite)
 })
-
-var renderMonthlyMDfiles = function() {
-
-}

@@ -9,7 +9,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return new Promise((resolve, reject) => {
     const pages = []
-    const blogPost = path.resolve("./src/templates/blog-post.js")
     resolve(
       graphql(
         `
@@ -27,23 +26,45 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
       }
     `
-      ).then(result => {
-        if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
-        }
-
-        // Create blog posts pages.
-        _.each(result.data.allMarkdownRemark.edges, edge => {
-          createPage({
-            path: edge.node.frontmatter.path,
-            component: blogPost,
-            context: {
-              path: edge.node.frontmatter.path,
-            },
-          })
-        })
-      })
+      ).then(result => generateStuff(createPage, result))
     )
   })
+}
+
+function generateStuff(createPage, graphqlResults) {
+  if (graphqlResults.errors) {
+    console.log("gatsby-node.js generateStuff graphqlError")
+    return Promise.reject(graphqlResults.errors);
+  }
+
+
+  const blogPost = path.resolve("./src/templates/blog-post.js")
+  const allPosts = graphqlResults.data.allMarkdownRemark.edges
+
+  // aware of groupBy in _. Taking time to get it to work so wrote a custom function
+  // easier to group here and keep it extensible rather than write a graphql query for grouping
+  // so doing it here.
+  const monthlyGroups = {};
+
+  // create individual date posts and also grouping by month
+  _.each(allPosts, individualPost => {
+    var yearMonth = individualPost.node.frontmatter.date.slice(0, 7);
+    if (monthlyGroups[yearMonth] === undefined) {
+      monthlyGroups[yearMonth] = [individualPost];
+    } else {
+      monthlyGroups[yearMonth].push(individualPost);
+    }
+    
+    createPage({
+      path: individualPost.node.frontmatter.path,
+      component: blogPost,
+      context: {
+        path: individualPost.node.frontmatter.path
+      }
+
+    })
+  }) // end of _.each
+
+  
+
 }
