@@ -31,7 +31,7 @@ class Template extends React.Component {
             }}
             to={'/'}
           >
-          HN Today
+          Hacker New Today
           </Link>
         </h1>
       )
@@ -52,7 +52,7 @@ class Template extends React.Component {
             }}
             to={'/'}
           >
-          HN Today
+          Hacker New Today
           </Link>
         </h3>
       )
