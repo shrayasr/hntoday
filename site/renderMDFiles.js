@@ -1,7 +1,7 @@
 var fs = require('fs')
 var path = require('path')
 var _ = require('lodash')
-var gifLocation = require('./gatsby-config').siteMetadata.gifSource
+var gifLocation = require('./config-automate.js').gifSource
 var pathToRenderedMDFiles = path.join('src', 'pages')
 var moment = require('moment')
 
@@ -17,11 +17,12 @@ var getDirectoriesThatRepresentDates = function(pathToDirectory) {
     return directoryList;
 }
 
-
+// folders already existing in src/pages i.e
 var renderedDates = getDirectoriesThatRepresentDates(pathToRenderedMDFiles).map(function(dateInHumanFriendlyFormat) {
     // so that the folders can be compared with the data source
     return moment(dateInHumanFriendlyFormat).format('YYYYMMDD')
 })
+
 var allDates = getDirectoriesThatRepresentDates(gifLocation)
 var datesToRender = _.difference(allDates, renderedDates)
 
@@ -52,7 +53,3 @@ _.forEach(datesToRender, function(date) {
     // })
     fs.writeFileSync(path.join(directoryForMDFile, "index.md"), contentToWrite)
 })
-
-var renderMonthlyMDfiles = function() {
-
-}

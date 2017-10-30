@@ -52,7 +52,7 @@ class Template extends React.Component {
             }}
             to={'/'}
           >
-            Hacker News Today
+          Hacker News Today
           </Link>
         </h3>
       )
