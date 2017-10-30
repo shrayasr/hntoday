@@ -5,6 +5,8 @@ var gifLocation = require('./config-automate.js').gifSource
 var pathToRenderedMDFiles = path.join('src', 'pages')
 var moment = require('moment')
 
+
+// not used right now (change in data format 20171010/20171010.gif to 20171010.gif)
 var getDirectoriesThatRepresentDates = function(pathToDirectory) {
     // right now assume all directories are dates.
     var contents = fs.readdirSync(pathToDirectory);
@@ -17,13 +19,23 @@ var getDirectoriesThatRepresentDates = function(pathToDirectory) {
     return directoryList;
 }
 
+var getAllDatesFromDirectoryOfGif = function(pathToDirectory) {
+    // assume the folder only has relevant gifs and nothing else
+    var content = fs.readdirSync(pathToDirectory);
+
+    return content.map(function(fileName) {
+        // using basic slicing instead of extracting extensions
+        return fileName.slice(0, -4)
+    })
+}
+
 // folders already existing in src/pages i.e
 var renderedDates = getDirectoriesThatRepresentDates(pathToRenderedMDFiles).map(function(dateInHumanFriendlyFormat) {
     // so that the folders can be compared with the data source
     return moment(dateInHumanFriendlyFormat).format('YYYYMMDD')
 })
 
-var allDates = getDirectoriesThatRepresentDates(gifLocation)
+var allDates = getAllDatesFromDirectoryOfGif(gifLocation)
 var datesToRender = _.difference(allDates, renderedDates)
 
 _.forEach(datesToRender, function(date) {
@@ -33,7 +45,7 @@ _.forEach(datesToRender, function(date) {
     fs.mkdirSync(directoryForMDFile)
 
     // copy gif
-    fs.writeFileSync(path.join(directoryForMDFile, date + ".gif"), fs.readFileSync(path.join(gifLocation, date, date + ".gif")))
+    fs.writeFileSync(path.join(directoryForMDFile, date + ".gif"), fs.readFileSync(path.join(gifLocation, date + ".gif")))
 
     var contentToWrite = [
         "---",
