@@ -1,6 +1,7 @@
 */5 * * * * cd /root/hntoday/ && bash work.sh
 56 23 * * * cd /root/hntoday/ && bash makegif.sh
 58 23 * * * cd /root/hntoday/ && bash posttweet.sh
+58 23 * * * cd /root/hntoday/ && bash pushdata.sh
 
 Bot: https://twitter.com/hackernewstoday
 Site: http://hntoday.xyz
