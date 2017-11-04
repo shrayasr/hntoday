@@ -13,7 +13,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       graphql(
         `
       {
-        allMarkdownRemark(limit: 1000) {
+        allMarkdownRemark(
+          limit: 10000
+        ) {
           edges {
             node {
               frontmatter {
@@ -69,8 +71,13 @@ function generateStuff(createPage, graphqlResults) {
     })
   }) // end of _.each
 
+  // sorting monthly posts archives and
   // creating pages that show links of each and every month
   _.each(monthlyGroups, function(postArray, date) {
+    postArray.sort(function(item1, item2) {
+      return item1.node.frontmatter.date > item2.node.frontmatter.date;
+    })
+    
     createPage({
       path: date,
       component: monthlyArchive,
