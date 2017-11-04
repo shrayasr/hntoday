@@ -3,6 +3,7 @@ const Promise = require("bluebird")
 const path = require("path")
 const select = require(`unist-util-select`)
 const fs = require(`fs-extra`)
+const moment = require('moment')
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
@@ -42,22 +43,35 @@ function generateStuff(createPage, graphqlResults) {
 
   const blogPost = path.resolve("./src/templates/blog-post.js")
   const monthlyArchive = path.resolve("./src/templates/monthly-archive.js")
+  const mainArchive = path.resolve("./src/templates/main-archive.js")
+
   const allPosts = graphqlResults.data.allMarkdownRemark.edges
 
   // aware of groupBy in _. Taking time to get it to work so wrote a custom function
   // easier to group here and keep it extensible rather than write a graphql query for grouping
   // so doing it here.
   const monthlyGroups = {};
-
+  // key - year, values -> list of 2017-10, 2017-11 etc
+  // for use with archives page
+  const yearToYearMonth = {}
   // create individual date posts and also grouping by month
   _.each(allPosts, individualPost => {
 
     // grouping monthly
     var yearMonth = individualPost.node.frontmatter.date.slice(0, 7);
+    var year = yearMonth.slice(0, 4);
+
     if (monthlyGroups[yearMonth] === undefined) {
       monthlyGroups[yearMonth] = [individualPost];
     } else {
       monthlyGroups[yearMonth].push(individualPost);
+    }
+
+
+    if (yearToYearMonth[year] === undefined) {
+      yearToYearMonth[year] = [yearMonth];
+    } else {
+      yearToYearMonth[year].push(yearMonth);
     }
    
     // creating individual day pages
@@ -75,9 +89,9 @@ function generateStuff(createPage, graphqlResults) {
   // creating pages that show links of each and every month
   _.each(monthlyGroups, function(postArray, date) {
     postArray.sort(function(item1, item2) {
-      return item1.node.frontmatter.date > item2.node.frontmatter.date;
+      return moment(item1.node.frontmatter.date) > moment(item2.node.frontmatter.date);
     })
-    
+
     createPage({
       path: date,
       component: monthlyArchive,
@@ -88,6 +102,21 @@ function generateStuff(createPage, graphqlResults) {
     })
   })
 
+  // sorting yearToMonthArchives
+  _.each(yearToYearMonth, function(monthLists, year) {
+    monthLists.sort(function(item1, item2) {
+      return moment(item1) > moment(item2);
+    })
+  })
+
+  // create an archive page linking to monthly archives
+  createPage({
+    path: "/archives",
+    component: mainArchive,
+    context: {
+      // yearMonths: yearToYearMonth error here. to fix
+    }
+  })
   
 
 }
