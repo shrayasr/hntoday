@@ -59,7 +59,9 @@ function generateStuff(createPage, graphqlResults) {
 
     // grouping monthly
     var yearMonth = individualPost.node.frontmatter.date.slice(0, 7);
-    var year = yearMonth.slice(0, 4);
+    // prefixing year because strings with only numbers are not allowed in the
+    // context field of Gatsby's create page. Sigh
+    var year = "year" + yearMonth.slice(0, 4); 
 
     if (monthlyGroups[yearMonth] === undefined) {
       monthlyGroups[yearMonth] = [individualPost];
@@ -71,7 +73,10 @@ function generateStuff(createPage, graphqlResults) {
     if (yearToYearMonth[year] === undefined) {
       yearToYearMonth[year] = [yearMonth];
     } else {
-      yearToYearMonth[year].push(yearMonth);
+      // check if it's a duplicate instead of removing duplicates
+      // if (yearToYearMonth[year].slice(-1) !== yearMonth) {
+        yearToYearMonth[year].push(yearMonth);
+      // }
     }
    
     // creating individual day pages
@@ -114,7 +119,7 @@ function generateStuff(createPage, graphqlResults) {
     path: "/archives",
     component: mainArchive,
     context: {
-      // yearMonths: yearToYearMonth error here. to fix
+      yearMonths: yearToYearMonth
     }
   })
   
