@@ -73,10 +73,7 @@ function generateStuff(createPage, graphqlResults) {
     if (yearToYearMonth[year] === undefined) {
       yearToYearMonth[year] = [yearMonth];
     } else {
-      // check if it's a duplicate instead of removing duplicates
-      if (yearToYearMonth[year].slice(-1)[0] !== yearMonth) {
         yearToYearMonth[year].push(yearMonth);
-      }
     }
    
     // creating individual day pages
@@ -106,13 +103,15 @@ function generateStuff(createPage, graphqlResults) {
       }
     })
   })
-
-  // sorting yearToMonthArchives
-  _.each(yearToYearMonth, function(monthLists, year) {
-    monthLists.sort(function(item1, item2) {
+  
+  // removing duplicates and sorting
+  _.each(Object.keys(yearToYearMonth), function(key) {
+    yearToYearMonth[key] = _.uniq(yearToYearMonth[key]);
+    yearToYearMonth[key].sort(function(item1, item2) {
       return moment(item1) > moment(item2);
     })
   })
+
 
   // create an archive page linking to monthly archives
   createPage({
