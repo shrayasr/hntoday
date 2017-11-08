@@ -74,9 +74,9 @@ function generateStuff(createPage, graphqlResults) {
       yearToYearMonth[year] = [yearMonth];
     } else {
       // check if it's a duplicate instead of removing duplicates
-      // if (yearToYearMonth[year].slice(-1) !== yearMonth) {
+      if (yearToYearMonth[year].slice(-1)[0] !== yearMonth) {
         yearToYearMonth[year].push(yearMonth);
-      // }
+      }
     }
    
     // creating individual day pages
