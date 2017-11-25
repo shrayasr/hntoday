@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
+import PageHeader from '../components/PageHeader'
 
 import { rhythm } from '../utils/typography'
 
@@ -12,6 +13,7 @@ class BlogIndex extends React.Component {
 
     return (
       <div>
+        <PageHeader />
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')} />
         {posts.map(post => {
           if (post.node.path !== '/404/') {
