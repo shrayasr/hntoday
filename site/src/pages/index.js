@@ -21,7 +21,7 @@ class BlogIndex extends React.Component {
           display: 'flex',
           alignItems: 'center',
           flexWrap: 'wrap',
-          justifyContent: 'space-between'
+          justifyContent: 'center'
         }}>
           {posts.map(post => {
             if (post.node.path !== '/404/') {
