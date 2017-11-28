@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import PageHeader from '../components/PageHeader'
+import IndexPageDateTiles from '../components/IndexPageDateTiles'
 
 import { rhythm } from '../utils/typography'
 
@@ -13,30 +14,28 @@ class BlogIndex extends React.Component {
 
     return (
       <div>
-        <PageHeader />
+        <PageHeader text="Hacker News Today" />
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')} />
-        {posts.map(post => {
-          if (post.node.path !== '/404/') {
-            const title = get(post, 'node.frontmatter.title') || post.node.path
-            return (
-              <div key={post.node.frontmatter.path}>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
-                  <Link
-                    style={{ boxShadow: 'none' }}
-                    to={post.node.frontmatter.path}
-                  >
-                    {post.node.frontmatter.title}
-                  </Link>
-                </h3>
-                <p dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
-              </div>
-            )
-          }
-        })}
+
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between'
+        }}>
+          {posts.map(post => {
+            if (post.node.path !== '/404/') {
+              const title = get(post, 'node.frontmatter.title') || post.node.path
+              return (
+                <IndexPageDateTiles 
+                  linkPath={post.node.frontmatter.path}
+                  gifDate={post.node.frontmatter.date}
+                />
+              )
+            }
+          })}
+        </div>
+        <p style={{textAlign: 'center'}}><a href="/archives">(more)</a></p>
       </div>
     )
   }

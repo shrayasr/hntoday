@@ -12,6 +12,7 @@ export default function CreatePaginationPost ({ pathContext, data }) {
     //     temp['node'] = individualPost
     //     postsRestructured.push(temp);
     // })
+    console.log(posts)
     return (
     <div>
         <h2 style={{textAlign: 'center',}}>Archives for { moment(yearMonth).format('MMMM YYYY') }</h2>
