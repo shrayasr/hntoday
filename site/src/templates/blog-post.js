@@ -2,8 +2,10 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
-
+import PageHeader from '../components/PageHeader'
+import moment from 'moment'
 import { rhythm, scale } from '../utils/typography'
+
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -12,8 +14,8 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <div>
+        <PageHeader text={"HNToday | " + moment(post.frontmatter.date).format('MMM Do, YYYY')} />
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-        <h1>{post.frontmatter.title}</h1>
         <p
           style={{
             ...scale(-1 / 5),

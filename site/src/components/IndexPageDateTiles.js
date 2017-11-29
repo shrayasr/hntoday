@@ -1,5 +1,7 @@
 import React from 'react'
 import moment from 'moment'
+import { rhythm, scale } from '../utils/typography'
+
 
 class IndexPageDateTiles extends React.Component {
     render() {
@@ -9,19 +11,20 @@ class IndexPageDateTiles extends React.Component {
             <a href={linkPath} style={{
                 flex: '0 1 230px',
                 height: 240,
-                textDecoration: 'none',
-                marginRight: 10,
+                boxShadow: 'none',
+                marginRight: 20,
                 border: '4px solid mistyrose',
                 marginBottom: 20,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
             }}>
                 <div sytle={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center'
                 }}>
-                <p style={{textAlign: 'center'}}>{moment(gifDate).format('Do')}</p>
-                <hr style={{maxWidth: '90%', marginRigth: 'auto', marginLeft: 'auto'}}/>
-                <p style={{textAlign: 'center'}}>{moment(gifDate).format('MMM')}</p>
+                    <p style={{textAlign: 'center'}}>{moment(gifDate).format('Do')}</p>
+                    <hr style={{/*maxWidth: '90%',*/ marginRigth: 'auto', marginLeft: 'auto'}}/>
+                    <p style={{textAlign: 'center'}}>{moment(gifDate).format('MMM')}</p>
                 </div>
             </a>
         )

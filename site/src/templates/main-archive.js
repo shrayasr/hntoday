@@ -3,11 +3,13 @@ import Link from 'gatsby-link';
 import { rhythm } from '../utils/typography';
 import moment from 'moment';
 import { forEach } from 'lodash';
+import PageHeader from '../components/PageHeader'
 
 export default function CreatePaginationPost ({ pathContext, data }) {
     const { yearMonths } = pathContext;
     return (
     <div>
+        <PageHeader text="HNToday | Archives" />
         {
             Object.keys(yearMonths).map(year => {
                 return (

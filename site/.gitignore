@@ -1,5 +1,7 @@
 node_modules/
 public
+src/pages/201*
+src/pages/202*
 .gatsby-context.js
 .DS_Store
 .intermediate-representation/
