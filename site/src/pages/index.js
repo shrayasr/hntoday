@@ -16,7 +16,7 @@ class BlogIndex extends React.Component {
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#bdc3c7',
+        backgroundColor: '#eeeeee',
         minHeight: '100vh',
       }}>
 

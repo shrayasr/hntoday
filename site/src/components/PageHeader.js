@@ -11,7 +11,7 @@ class PageHeader extends React.Component {
             <header>
                 <h1
                     style={{
-                        marginTop: '0.5rem',
+                        marginTop: '0',
                         marginBottom: '3rem',
                         textAlign: 'center',
                         paddingTop: '1rem',

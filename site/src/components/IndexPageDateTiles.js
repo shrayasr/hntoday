@@ -25,7 +25,7 @@ class IndexPageDateTiles extends React.Component {
             }}>
                 <div sytle={{
                 }}>
-                    <p style={{textAlign: 'center'}}>{moment(gifDate).format('Do')}</p>
+                    <p style={{textAlign: 'center'}}>{moment(gifDate).format('DD')}<sup>{moment(gifDate).format('Do').substr(-2)}</sup></p>
                     <p style={{textAlign: 'center'}}>{moment(gifDate).format('MMM')}</p>
                 </div>
             </a>
