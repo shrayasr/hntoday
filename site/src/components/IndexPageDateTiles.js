@@ -13,17 +13,19 @@ class IndexPageDateTiles extends React.Component {
                 height: 240,
                 boxShadow: 'none',
                 marginRight: 20,
-                border: '4px solid mistyrose',
+                border: '2px solid #d35400',
                 marginBottom: 20,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
+                backgroundColor: '#2980b9',
+                color: '#ecf0f1',
+                fontSize: '3rem'
             }}>
                 <div sytle={{
                 }}>
                     <p style={{textAlign: 'center'}}>{moment(gifDate).format('Do')}</p>
-                    <hr style={{/*maxWidth: '90%',*/ marginRigth: 'auto', marginLeft: 'auto'}}/>
                     <p style={{textAlign: 'center'}}>{moment(gifDate).format('MMM')}</p>
                 </div>
             </a>

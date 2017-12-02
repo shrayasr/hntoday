@@ -13,15 +13,22 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
 
     return (
-      <div>
-        <PageHeader text="Hacker News Today" />
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: '#bdc3c7',
+        minHeight: '100vh',
+      }}>
+
+        <PageHeader text="Hacker News Today"/>
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')} />
 
         <div style={{
           display: 'flex',
           alignItems: 'center',
           flexWrap: 'wrap',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          marginBottom: 20,
         }}>
           {posts.map(post => {
             if (post.node.path !== '/404/') {
@@ -35,7 +42,7 @@ class BlogIndex extends React.Component {
             }
           })}
         </div>
-        <p style={{textAlign: 'center'}}><a href="/archives">(more)</a></p>
+        <p style={{textAlign: 'center', }}><a href="/archives">(more)</a></p>
       </div>
     )
   }

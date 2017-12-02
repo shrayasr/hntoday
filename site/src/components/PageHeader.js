@@ -11,9 +11,13 @@ class PageHeader extends React.Component {
             <header>
                 <h1
                     style={{
-                        marginBottom: rhythm(1.5),
-                        marginTop: 0,
-                        textAlign: 'center'
+                        marginTop: '0.5rem',
+                        marginBottom: '3rem',
+                        textAlign: 'center',
+                        paddingTop: '1rem',
+                        paddingBottom: '1.5rem',
+                        backgroundColor: '#d35400',
+                        borderBottom: '2px solid #2c3e50',
                     }}
                 >
                     <Link
@@ -27,7 +31,6 @@ class PageHeader extends React.Component {
                     {heading}
                     </Link>
                 </h1>
-                <hr/>
             </header>
         )
     }
