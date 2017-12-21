@@ -24,11 +24,12 @@
     "gatsby-source-filesystem": "^1.5.5",
     "gatsby-transformer-remark": "^1.7.17",
     "gatsby-transformer-sharp": "^1.6.10",
+    "gray-percentage": "^2.0.0",
     "lodash": "^4.15.0",
     "react-responsive-grid": "^0.3.3",
     "typeface-merriweather": "^0.0.35",
     "typeface-montserrat": "^0.0.37",
-    "typography-theme-wordpress-2016": "^0.15.1"
+    "typography-breakpoint-constants": "^0.15.10"
   },
   "devDependencies": {
     "gh-pages": "^0.12.0",
