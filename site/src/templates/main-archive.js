@@ -9,13 +9,17 @@ import YearBoxWithMonths from '../components/YearBoxWithMonths'
 export default function CreatePaginationPost ({ pathContext, data }) {
     const { yearMonths } = pathContext;
     return (
-    <div>
+    <div style={{
+        backgroundColor: "#eeeeee",
+        minHeight: "100vh",
+    }}>
         <PageHeader text="HNToday | Archives" />
         <div style={{
             display: 'flex',
             alignItems: 'center',
+            flexDirection: 'row',
             flexWrap: 'wrap',
-            justifyContent: 'center'
+            justifyContent: 'center',
         }}>
         {
             Object.keys(yearMonths).map(year => {
