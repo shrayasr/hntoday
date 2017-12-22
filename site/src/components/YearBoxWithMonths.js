@@ -32,9 +32,9 @@ class YearBoxWithMonths extends React.Component {
                 flex: '0 1 400px',
                 flexWrap: 'wrap',
                 marginBottom: '2rem',
+                marginRight: '1rem',
+                marginLeft: '1rem',
                 backgroundColor: '#2980b9',
-                marginBottom: 20,
-                marginRight: 20,
                 padding:"2rem 0 2rem 0",
                 border: '2px solid #d35400'
             }}>

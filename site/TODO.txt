@@ -1,0 +1,7 @@
+Take out common functionality (especially these flex items and turn them into configurable components)
+
+CSS Refactoring required (inline). Try out Tachyons. Once that's done try out different colours with ease.
+
+Monthly Archive Page - sorting issues
+
+Change base-font size for different screen sizes. It isn't working right now.
