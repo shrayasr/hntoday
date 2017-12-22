@@ -23,30 +23,11 @@ export default function CreatePaginationPost ({ pathContext, data }) {
         }}>
         {
             Object.keys(yearMonths).map(year => {
+
+
                 return (
-                        
-                        <YearBoxWithMonths year={year.slice(-4)}/>
+                    <YearBoxWithMonths year={year.slice(-4)} months={yearMonths[year]}/>
                 )
-
-                    {/* <h2 style={{textAlign: 'center',}}>{year.slice(-4)}</h2> */}
-                        {/* <div style={{
-                        }}>
-                            {
-                                yearMonths[year].map(yearMonth => {
-                                    return (
-                                        <h3 style={{marginBottom: rhythm(1 / 4),}}>
-                                            <Link
-                                                style={{ boxShadow: 'none' }}
-                                                to={"/" + yearMonth}
-                                            >
-                                            { moment(yearMonth).format('MMM') }
-                                            </Link>
-                                        </h3>
-                                    )
-                                })
-                            }
-                        </div> */}
-
             })
         }
         </div>
