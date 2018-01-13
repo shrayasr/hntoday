@@ -12,7 +12,7 @@ class BlogIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
-
+    console.log(posts[0].html)
     return (
       <div style={{
         display: 'flex',
@@ -24,7 +24,7 @@ class BlogIndex extends React.Component {
         <PageHeader text="Hacker News Today"/>
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')} />
 
-        <div style={{
+        {/* <div style={{
           display: 'flex',
           alignItems: 'center',
           flexWrap: 'wrap',
@@ -42,7 +42,8 @@ class BlogIndex extends React.Component {
               )
             }
           })}
-        </div>
+        </div> */}
+        <div style={{textAlign: 'center'}} dangerouslySetInnerHTML={{ __html: posts[0].node.html }} />
         <p style={{textAlign: 'center', }}><a href="/archives">(more)</a></p>
       </div>
     )
@@ -64,11 +65,12 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      limit: 7
+      limit: 1
     ) {
       edges {
         node {
           excerpt
+          html
           frontmatter {
             path
             date(formatString: "DD MMMM, YYYY")
