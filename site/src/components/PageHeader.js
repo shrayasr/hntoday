@@ -1,6 +1,7 @@
 import React from 'react'
 import { rhythm } from '../utils/typography'
 import Link from 'gatsby-link'
+import {colour1, colour2, colour3, colour6 } from '../utils/style-constants'
 
 class PageHeader extends React.Component {
 
@@ -16,7 +17,7 @@ class PageHeader extends React.Component {
                         textAlign: 'center',
                         paddingTop: '1rem',
                         paddingBottom: '1.5rem',
-                        backgroundColor: '#d35400',
+                        backgroundColor: colour2,
                         borderBottom: '2px solid #2c3e50',
                     }}
                 >
@@ -24,7 +25,7 @@ class PageHeader extends React.Component {
                     style={{
                         boxShadow: 'none',
                         textDecoration: 'none',
-                        color: 'inherit',
+                        color: colour6 
                     }}
                     to={'/'}
                     >

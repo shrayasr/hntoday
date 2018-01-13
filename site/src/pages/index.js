@@ -6,6 +6,7 @@ import PageHeader from '../components/PageHeader'
 import IndexPageDateTiles from '../components/IndexPageDateTiles'
 
 import { rhythm } from '../utils/typography'
+import {colour1, colour2, colour3 } from '../utils/style-constants'
 
 class BlogIndex extends React.Component {
   render() {
@@ -16,7 +17,7 @@ class BlogIndex extends React.Component {
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#eeeeee',
+        backgroundColor: colour3,
         minHeight: '100vh',
       }}>
 

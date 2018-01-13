@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import { rhythm, scale } from '../utils/typography'
+import {colour1, colour2, colour3, colour4, colour5 } from '../utils/style-constants'
 
 
 class IndexPageDateTiles extends React.Component {
@@ -14,14 +15,14 @@ class IndexPageDateTiles extends React.Component {
                 boxShadow: 'none',
                 marginRight: '1rem',
                 marginLeft: '1rem',
-                border: '2px solid #d35400',
+                // border: '2px solid ' + colour4,
                 marginBottom: 20,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: '#2980b9',
-                color: '#ecf0f1',
+                backgroundColor: colour1,
+                color: colour5,
                 fontSize: '3rem'
             }}>
                 <div sytle={{

@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import { rhythm, scale } from '../utils/typography'
+import {colour1, colour2, colour3 } from '../utils/style-constants'
 
 
 class DateBoxes extends React.Component {
@@ -21,7 +22,7 @@ class DateBoxes extends React.Component {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: '#2980b9',
+                backgroundColor: colour1,
                 color: '#ecf0f1',
                 fontSize: '3rem'
             }}>
