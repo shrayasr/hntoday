@@ -14,7 +14,7 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <div>
-        <PageHeader text={"HNToday | " + moment(post.frontmatter.date).format('MMM Do, YYYY')} />
+        <PageHeader text={"HNToday | " + moment(post.frontmatter.date).format('DD MMM YYYY')} />
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <p
           style={{

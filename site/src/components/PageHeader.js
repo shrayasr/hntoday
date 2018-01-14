@@ -18,6 +18,7 @@ class PageHeader extends React.Component {
                         paddingTop: '1rem',
                         paddingBottom: '1.5rem',
                         backgroundColor: colour2,
+                        fontSize: '1.5rem',
                         borderBottom: '2px solid #2c3e50',
                     }}
                 >

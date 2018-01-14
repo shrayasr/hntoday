@@ -44,7 +44,7 @@ class BlogIndex extends React.Component {
           })}
         </div> */}
         <div style={{textAlign: 'center'}} dangerouslySetInnerHTML={{ __html: posts[0].node.html }} />
-        <p style={{textAlign: 'center', }}><a href="/archives">(more)</a></p>
+        <p style={{textAlign: 'center'}}><a href="/archives" style={{boxShadow: 'none', border: 'none'}}>more</a></p>
       </div>
     )
   }
