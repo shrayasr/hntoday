@@ -48,6 +48,8 @@ class MonthBox extends React.Component {
                 flexDirection: 'row',
                 flex: '0 1 500px',
                 flexWrap: 'wrap',
+                justifyContent: 'space-between',
+
             }}
             >
             <div style={{
@@ -57,8 +59,8 @@ class MonthBox extends React.Component {
                 fontSize: '3rem',
                 color: '#ecf0f1'
             }}>{displayHeader}</div>
-            {
 
+            {
 
             actualDaysInTheMonth.map(date => {
                 var date_link = null
@@ -69,10 +71,11 @@ class MonthBox extends React.Component {
 
                 return (
                     <div style={{
-                        flex: '1 0 15%',
+                        flex: '0 1 15%',
                         textAlign: 'center',
                         fontSize: '1.5rem',
                         marginBottom: '1rem',
+                        float: 'left'
                     }}>{date_link}</div>
                 )
             })

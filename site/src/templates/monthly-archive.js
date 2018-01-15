@@ -19,7 +19,7 @@ export default function CreatePaginationPost ({ pathContext, data }) {
     })
     return (
         <div style={{backgroundColor: "#eeeeee", minHeight: "100vh"}}>
-            <PageHeader text={"HNToday | " + moment(yearMonth).format('MMM YY')} />
+            <PageHeader text={"HNToday | " + moment(yearMonth).format('MMM YYYY')} />
             <div style={{
                 display: 'flex',
                 flexDirection: 'row',
