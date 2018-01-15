@@ -5,7 +5,7 @@ import moment from 'moment';
 import { forEach } from 'lodash';
 import PageHeader from '../components/PageHeader';
 import DateBoxes from '../components/DateBoxes';
-
+import MonthBox from '../components/MonthBox'
 export default function CreatePaginationPost ({ pathContext, data }) {
     const { posts, yearMonth } = pathContext;
     // var postsRestructured = [];
@@ -14,26 +14,23 @@ export default function CreatePaginationPost ({ pathContext, data }) {
     //     temp['node'] = individualPost
     //     postsRestructured.push(temp);
     // })
+    const links = posts.map(post => {
+        return post.node.frontmatter.path
+    })
     return (
         <div style={{backgroundColor: "#eeeeee", minHeight: "100vh"}}>
             <PageHeader text={"HNToday | " + moment(yearMonth).format('MMM YY')} />
             <div style={{
                 display: 'flex',
-                // alignContent: 'stretch',
                 flexDirection: 'row',
                 flexWrap: 'wrap',
-                justifyContent: 'flex-start',
-                width: '90%',
+                justifyContent: 'center',
+                alignItems: 'center',
                 marginRight: 'auto',
-                marginLeft: 'auto'
+                marginLeft: 'auto',
             }}>
-                {
-                    posts.map(post => {
-                        return (
-                            <DateBoxes link={post.node.frontmatter.path} anchorDate={moment(post.node.frontmatter.path).format('DD')}/>
-                        )
-                    })
-                }
+
+            <MonthBox yearMonth={yearMonth} links={links}/>
             </div>
         </div>
     );

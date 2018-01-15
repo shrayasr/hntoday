@@ -4,4 +4,6 @@ CSS Refactoring required (inline). Try out Tachyons. Once that's done try out di
 
 Monthly Archive Page - sorting issues
 
-Change base-font size for different screen sizes. It isn't working right now.
+Change base-font size for different screen sizes. It isn't working right now. (currently set a size that works for all sizes. Bad approach)
+
+Get extra dates in the month view (/2017-10) to align on the left

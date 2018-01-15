@@ -33,7 +33,7 @@ module.exports = {
 // Original
  module.exports = {
      'colour1': '#2980b9', // box backgrounds
-     'colour2': '#d35400', // header backgrounds
+     'colour2': '#e26b33',// '#d35400', // header backgrounds
      'colour3': '#eeeeee', // background
      'colour4': '#d35400', // border colours for boxes
      'colour5': '#ecf0f1', // text in boxes

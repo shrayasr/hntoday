@@ -91,11 +91,10 @@ function generateStuff(createPage, graphqlResults) {
   // creating pages that show links of each and every month
   _.each(Object.keys(monthlyGroups), function(key) {
 
-    // sorting of montly archives to be fixed here :/
-    // for some weird reason it doesn't work
-    monthlyGroups[key] = monthlyGroups[key].sort(function(item1, item2) {
-      return moment(item1.node.frontmatter.date) > moment(item2.node.frontmatter.date);
-    })
+    // there's no need to sort as we anyways
+    // have to go date wise in the monthly archive
+    // moreover there's some weird bug
+    // tried sorting it many times but doesn't get sorted
     
     createPage({
       path: key,

@@ -20,6 +20,7 @@ class PageHeader extends React.Component {
                         backgroundColor: colour2,
                         fontSize: '1.5rem',
                         borderBottom: '2px solid #2c3e50',
+                        color: 'hsla(0, 0, 0, 0.9)'
                     }}
                 >
                     <Link
