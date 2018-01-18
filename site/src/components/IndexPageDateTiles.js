@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import { rhythm, scale } from '../utils/typography'
-import {colour1, colour2, colour3, colour4, colour5 } from '../utils/style-constants'
+import {colour1, colour2, colour3, colour4, colour5, colour7 } from '../utils/style-constants'
 
 
 class IndexPageDateTiles extends React.Component {

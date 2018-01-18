@@ -7,12 +7,13 @@ import IndexPageDateTiles from '../components/IndexPageDateTiles'
 
 import { rhythm } from '../utils/typography'
 import {colour1, colour2, colour3 } from '../utils/style-constants'
+import moment from 'moment'
 
 class BlogIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
-    console.log(posts[0].html)
+    var date = moment(posts[0].node.frontmatter.path)
     return (
       <div style={{
         display: 'flex',
@@ -43,8 +44,9 @@ class BlogIndex extends React.Component {
             }
           })}
         </div> */}
+        <h3 style={{textAlign: 'center', marginTop: '2rem'}}>Hacker News on {date.format('DD')}<sup>{date.format('Do').substr(-2)}</sup> {date.format('MMM YY')}</h3>
         <div style={{textAlign: 'center'}} dangerouslySetInnerHTML={{ __html: posts[0].node.html }} />
-        <p style={{textAlign: 'center'}}><a href="/archives" style={{boxShadow: 'none', border: 'none'}}>more</a></p>
+        <p style={{textAlign: 'center', fontSize: '1.25rem'}}><a href="/archives" style={{boxShadow: 'none', border: 'none'}}>more</a></p>
       </div>
     )
   }

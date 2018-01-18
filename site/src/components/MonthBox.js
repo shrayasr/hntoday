@@ -3,6 +3,7 @@ import moment from 'moment'
 import { rhytm, scale } from '../utils/typography'
 const _ = require('lodash')
 import Link from 'gatsby-link'
+import {colour1, colour2, colour3, colour4, colour7} from '../utils/style-constants'
 
 class MonthBox extends React.Component {
     render() {
@@ -28,22 +29,24 @@ class MonthBox extends React.Component {
         })
 
         var disabled_link = {
-            color: "#eeeeee",
+            color: "#1a0a00",
             boxShadow: "none",
             cursor: 'not-allowed'
         }
 
         var enabled_link = {
-            color: "#1a0a00"
+            color: colour7,
+            boxShadow: '0 1px 0 0 ' + colour7
         }
         return(
             <div style={{
                 marginBottom: '2rem',
                 marginRight: '1rem',
                 marginLeft: '1rem',
-                backgroundColor: '#2980b9',
+                backgroundColor: colour1,
                 padding:"2rem 0 2rem 0",
-                border: '2px solid #d35400',
+                boxShadow: '5px 5px 0px ' + colour4,
+                border: '2px solid ' + colour7,
                 display: 'flex',
                 flexDirection: 'row',
                 flex: '0 1 500px',
@@ -57,7 +60,7 @@ class MonthBox extends React.Component {
                 textAlign: 'center',
                 marginBottom: '2rem',
                 fontSize: '3rem',
-                color: '#ecf0f1'
+                color: colour7
             }}>{displayHeader}</div>
 
             {

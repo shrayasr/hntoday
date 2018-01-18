@@ -32,11 +32,12 @@ module.exports = {
 
 // Original
  module.exports = {
-     'colour1': '#2980b9', // box backgrounds
+     'colour1': '#f9f9f9', // box backgrounds
      'colour2': '#e26b33',// '#d35400', // header backgrounds
      'colour3': '#eeeeee', // background
-     'colour4': '#d35400', // border colours for boxes
+     'colour4': '#e26a33', // box shadow for boxes
      'colour5': '#ecf0f1', // text in boxes
-     'colour6': '#000000' // header colour
+     'colour6': '#000000', // header colour
+     'colour7': '#d35400', // colour for box border and enabled links
  }
 

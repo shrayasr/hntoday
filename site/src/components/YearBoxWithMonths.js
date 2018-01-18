@@ -3,6 +3,7 @@ import moment from 'moment'
 import { rhythm, scale } from '../utils/typography'
 const _ = require('lodash')
 import Link from 'gatsby-link'
+import {colour1, colour2, colour3, colour4, colour7} from '../utils/style-constants'
 
 class YearBoxWithMonths extends React.Component {
     render() {
@@ -15,13 +16,14 @@ class YearBoxWithMonths extends React.Component {
         })
 
         var disabled_link = {
-            color: "#eeeeee",
+            color: "#1a0a00",
             boxShadow: "none",
             cursor: 'not-allowed'
         }
 
         var enabled_link = {
-            color: "#1a0a00"
+            color: colour7,
+            boxShadow: '0 1px 0 0 ' + colour7
         }
         return (
             <div style={{
@@ -34,16 +36,17 @@ class YearBoxWithMonths extends React.Component {
                 marginBottom: '2rem',
                 marginRight: '1rem',
                 marginLeft: '1rem',
-                backgroundColor: '#2980b9',
+                backgroundColor: colour1,
                 padding:"2rem 0 2rem 0",
-                border: '2px solid #d35400'
+                boxShadow: '5px 5px 0px ' + colour4,
+                border: '2px solid ' + colour7,
             }}>
             <div style={{
                 flex: '0 1 100%', 
                 textAlign: 'center', 
                 marginBottom: '2rem', 
                 fontSize: '3rem',
-                color: '#ecf0f1'}}>
+                color: colour7 }}>
             
             {year}</div>
             {
