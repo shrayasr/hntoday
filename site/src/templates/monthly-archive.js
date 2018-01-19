@@ -17,6 +17,7 @@ export default function CreatePaginationPost ({ pathContext, data }) {
     const links = posts.map(post => {
         return post.node.frontmatter.path
     })
+    const date = moment(yearMonth)
     return (
         <div style={{backgroundColor: "#eeeeee", minHeight: "100vh"}}>
             <PageHeader text={"HNToday | " + moment(yearMonth).format('MMM YYYY')} />
@@ -32,6 +33,7 @@ export default function CreatePaginationPost ({ pathContext, data }) {
 
             <MonthBox yearMonth={yearMonth} links={links}/>
             </div>
+            <p style={{textAlign: 'center', fontSize: '1.5rem'}}><a href="/archives" style={{boxShadow: 'none', border: 'none'}}>← {date.format('YYYY')}</a></p>
         </div>
     );
 }
