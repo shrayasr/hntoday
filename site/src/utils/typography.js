@@ -1,6 +1,9 @@
 import Typography from 'typography'
 import gray from 'gray-percentage'
-import { MOBILE_MEDIA_QUERY, TABLET_MEDIA_QUERY } from 'typography-breakpoint-constants'
+import {
+  MOBILE_MEDIA_QUERY,
+  TABLET_MEDIA_QUERY,
+} from 'typography-breakpoint-constants'
 
 // Taken from typography-theme-wordpress-2016
 const typography = new Typography({
@@ -52,8 +55,7 @@ const typography = new Typography({
     'ul,ol': {
       marginLeft: 0,
     },
-    [TABLET_MEDIA_QUERY]: {
-    },
+    [TABLET_MEDIA_QUERY]: {},
     [MOBILE_MEDIA_QUERY]: {
       'ul,ol': {
         marginLeft: rhythm(1),

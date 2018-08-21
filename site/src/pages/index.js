@@ -6,7 +6,7 @@ import PageHeader from '../components/PageHeader'
 import IndexPageDateTiles from '../components/IndexPageDateTiles'
 
 import { rhythm } from '../utils/typography'
-import {colour1, colour2, colour3 } from '../utils/style-constants'
+import { colour1, colour2, colour3 } from '../utils/style-constants'
 import moment from 'moment'
 
 class BlogIndex extends React.Component {
@@ -15,14 +15,15 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
     var date = moment(posts[0].node.frontmatter.path)
     return (
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: colour3,
-        minHeight: '100vh',
-      }}>
-
-        <PageHeader text="Hacker News Today"/>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          backgroundColor: colour3,
+          minHeight: '100vh',
+        }}
+      >
+        <PageHeader text="Hacker News Today" />
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')} />
 
         {/* <div style={{
@@ -44,9 +45,19 @@ class BlogIndex extends React.Component {
             }
           })}
         </div> */}
-        <h3 style={{textAlign: 'center', marginTop: '2rem'}}>Hacker News on {date.format('DD')}<sup>{date.format('Do').substr(-2)}</sup> {date.format('MMM YY')}</h3>
-        <div style={{textAlign: 'center'}} dangerouslySetInnerHTML={{ __html: posts[0].node.html }} />
-        <p style={{textAlign: 'center', fontSize: '1.25rem'}}><a href="/archives" style={{boxShadow: 'none', border: 'none'}}>more</a></p>
+        <h3 style={{ textAlign: 'center', marginTop: '2rem' }}>
+          Hacker News on {date.format('DD')}
+          <sup>{date.format('Do').substr(-2)}</sup> {date.format('MMM YY')}
+        </h3>
+        <div
+          style={{ textAlign: 'center' }}
+          dangerouslySetInnerHTML={{ __html: posts[0].node.html }}
+        />
+        <p style={{ textAlign: 'center', fontSize: '1.25rem' }}>
+          <a href="/archives" style={{ boxShadow: 'none', border: 'none' }}>
+            more
+          </a>
+        </p>
       </div>
     )
   }

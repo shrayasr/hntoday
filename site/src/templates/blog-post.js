@@ -6,7 +6,6 @@ import PageHeader from '../components/PageHeader'
 import moment from 'moment'
 import { rhythm, scale } from '../utils/typography'
 
-
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -14,7 +13,7 @@ class BlogPostTemplate extends React.Component {
     const date = moment(post.frontmatter.date)
     return (
       <div>
-        <PageHeader text={"HNToday | " + date.format('DD MMM YYYY')} />
+        <PageHeader text={'HNToday | ' + date.format('DD MMM YYYY')} />
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <p
           style={{
@@ -23,10 +22,19 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
             marginTop: rhythm(-1),
           }}
-        >
+        />
+        <div
+          style={{ textAlign: 'center', marginTop: '4rem' }}
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
+        <p style={{ textAlign: 'center', fontSize: '1.5rem' }}>
+          <a
+            href={date.format('/YYYY-MM')}
+            style={{ boxShadow: 'none', border: 'none' }}
+          >
+            ← {date.format('MMMM')}
+          </a>
         </p>
-        <div style={{textAlign: 'center', marginTop: '4rem'}} dangerouslySetInnerHTML={{ __html: post.html }} />
-        <p style={{textAlign: 'center', fontSize: '1.5rem'}}><a href={date.format('/YYYY-MM')} style={{boxShadow: 'none', border: 'none'}}>← {date.format('MMMM')}</a></p>
       </div>
     )
   }

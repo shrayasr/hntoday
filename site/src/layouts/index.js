@@ -12,8 +12,8 @@ class Template extends React.Component {
         style={{
           maxWidth: rhythm(48),
           padding: `0 ${rhythm(0.5)}`,
-          backgroundColor: "#ffffff",
-          minHeight: '100vh'
+          backgroundColor: '#ffffff',
+          minHeight: '100vh',
         }}
       >
         {children()}
